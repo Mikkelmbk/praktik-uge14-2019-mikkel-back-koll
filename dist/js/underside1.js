@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded', () => {
 
 	let galleryContainerElement = document.querySelector('.galleryContainer');
 	let galleryDataElement = document.querySelector('.gallery-data');
 	let dataUrlElements = galleryDataElement.querySelectorAll('div');
 
-	if(dataUrlElements.length != 0){
+	if (dataUrlElements.length != 0) {
 
 		galleryContainerElement.style.display = "flex";
 		galleryContainerElement.style.flexDirection = "column";
@@ -15,54 +15,83 @@ document.addEventListener('DOMContentLoaded',()=>{
 		let dataArray = [];
 		let nextSlideBtnElement = galleryContainerElement.querySelector('#btn-next-image');
 		let prevSlideBtnElement = galleryContainerElement.querySelector('#btn-prev-image');
+		let slideShowBtnElement = galleryContainerElement.querySelector('#btn-slideshow-image');
 		let imageCountElement = galleryContainerElement.querySelector('.imageCount');
 		let imageTitleElement = galleryContainerElement.querySelector('.imageTitle');
+		let setIntervalByClick;
 
-
-
-		
-		dataUrlElements.forEach((dataUrlElement)=>{
-	
-			dataArray.push({url:dataUrlElement.dataset.url, title:dataUrlElement.dataset.title});
-
-		})
+		dataUrlElements.forEach((dataUrlElement) => {
+			dataArray.push({ url: dataUrlElement.dataset.url, title: dataUrlElement.dataset.title });
+		});
 
 
 
 		updateSource();
 		imageCount();
 
-		nextSlideBtnElement.addEventListener('click',()=>{
-			imageIndex++;
-			if(imageIndex >= dataArray.length){
-				imageIndex = 0;
+		nextSlideBtnElement.addEventListener('click', () => {
+			nextSlide();
+			imageCount();
+			updateSource();
+			ifNotUndefinedCallStopIntervalByBtn();
+		});
+
+		prevSlideBtnElement.addEventListener('click', () => {
+			imageIndex--;
+			if (imageIndex < 0) {
+				imageIndex = dataArray.length - 1;
 			}
+			ifNotUndefinedCallStopIntervalByBtn();
 			imageCount();
 			updateSource();
 		});
 
-		prevSlideBtnElement.addEventListener('click',()=>{
-			imageIndex--;
-			if(imageIndex < 0){
-				imageIndex = dataArray.length -1;
+		slideShowBtnElement.addEventListener('click', () => {
+			if(typeof(setIntervalByClick) == "undefined"){
+				setIntervalByClick = setInterval(() => {
+					nextSlide();
+					imageCount();
+					updateSource();
+				}, 1500);
 			}
-			imageCount();
-			updateSource();
-		})
+		});
+
+		
 
 
-
-		function updateSource(){
-			if(dataArray.length != 0){
+		function updateSource() {
+			if (dataArray.length != 0) {
 				currentImageElement.src = dataArray[imageIndex].url;
-				}
+			}
+		};
+
+		function imageCount() {
+			imageCountElement.innerHTML = imageIndex + 1 + "/" + dataArray.length;
+			imageTitleElement.innerHTML = dataArray[imageIndex].title;
+		};
+
+		function nextSlide() {
+			imageIndex++;
+			if (imageIndex >= dataArray.length) {
+				imageIndex = 0;
+			};
+		};
+
+		function ifNotUndefinedCallStopIntervalByBtn (){
+			if(setIntervalByClick !== undefined){
+				stopIntervalByBtn(setIntervalByClick);
+			}
 		}
 
-		function imageCount(){
-			imageCountElement.innerHTML = imageIndex+1 + "/" + dataArray.length;
-			imageTitleElement.innerHTML = dataArray[imageIndex].title;
+		function stopIntervalByBtn(intervalToBeCleared){
+			clearInterval(intervalToBeCleared);
+			setIntervalByClick = undefined;
 		}
+
+
 	}
+
+
 
 
 
