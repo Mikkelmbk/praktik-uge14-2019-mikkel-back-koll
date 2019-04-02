@@ -13,6 +13,11 @@
   width: 120px;
 }
 
+.slideshowBtnColorChange {
+  background-color: orange;
+  color: white;
+}
+
 .header__a, .footer__a {
   font-size: 1.2em;
   text-decoration: none;

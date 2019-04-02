@@ -46,18 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			updateSource();
 		});
 
+
 		slideShowBtnElement.addEventListener('click', () => {
-			if(typeof(setIntervalByClick) == "undefined"){
+			if (typeof (setIntervalByClick) == "undefined") {
 				setIntervalByClick = setInterval(() => {
 					nextSlide();
 					imageCount();
 					updateSource();
-				}, 1500);
+				}, 2000);
+				slideShowBtnElement.classList.toggle('slideshowBtnColorChange');
+			}
+			else{
+				ifNotUndefinedCallStopIntervalByBtn();
+				slideShowBtnElement.classList.toggle('slideshowBtnColorChange');
 			}
 		});
-
-		
-
 
 		function updateSource() {
 			if (dataArray.length != 0) {
@@ -77,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			};
 		};
 
-		function ifNotUndefinedCallStopIntervalByBtn (){
-			if(setIntervalByClick !== undefined){
+		function ifNotUndefinedCallStopIntervalByBtn() {
+			if (setIntervalByClick !== undefined) {
 				stopIntervalByBtn(setIntervalByClick);
 			}
 		}
 
-		function stopIntervalByBtn(intervalToBeCleared){
+		function stopIntervalByBtn(intervalToBeCleared) {
 			clearInterval(intervalToBeCleared);
 			setIntervalByClick = undefined;
 		}
