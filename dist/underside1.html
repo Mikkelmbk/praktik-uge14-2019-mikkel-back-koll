@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/style.css">
-	<link id="themeChanger" rel="stylesheet" href="css/style.css">
+	<link id="themeChanger" rel="stylesheet" data-theme="dark" href="css/style.css">
 	<title>Forside</title>
 </head>
+
 <body class="reset">
 
 	<header class="header">
@@ -17,6 +19,27 @@
 	<main class="main">
 
 		<button class="main__changeThemeBtn">Change Theme by Clicking</button>
+
+		<div class="galleryContainer">
+
+			<div class="gallery-data">
+
+				<div data-url="assets/images/cat1.jpg"></div>
+				<div data-url="assets/images/cat2.jpg"></div>
+				<div data-url="assets/images/cat3.jpg"></div>
+
+			</div>
+
+			<img src="" alt="" id="current-image">
+
+			<button id="btn-next-image">Next Image</button>
+			<button id="btn-prev-image">Previous Image</button>
+
+
+
+
+
+		</div>
 
 	</main>
 
@@ -28,5 +51,7 @@
 
 
 	<script src="js/shared.js"></script>
+	<script src="js/underside1.js"></script>
 </body>
+
 </html>

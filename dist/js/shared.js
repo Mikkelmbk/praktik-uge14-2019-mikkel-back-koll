@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
-
-
 	let changeThemeByBtnElement = document.querySelector('.main__changeThemeBtn');
 
 	let themeChangerLinkElement = document.querySelector('#themeChanger');
