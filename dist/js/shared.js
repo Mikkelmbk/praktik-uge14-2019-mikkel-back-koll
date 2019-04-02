@@ -2,20 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+
 	let changeThemeByBtnElement = document.querySelector('.main__changeThemeBtn');
 
 	let themeChangerLinkElement = document.querySelector('#themeChanger');
 
-	
+	if (localStorage.getItem('currentTheme') !== null) {
+	themeChangerLinkElement.href = localStorage.getItem('currentTheme');
+	if(localStorage.getItem('currentTheme') == "css/lightTheme.css"){
+		themeChangerLinkElement.dataset.theme = "light";
+	}
+	}
 
 	changeThemeByBtnElement.addEventListener('click', () => {
-		if (themeChangerLinkElement.dataset.theme == "light") {
+		if (themeChangerLinkElement.dataset.theme == "dark") {
 			themeChangerLinkElement.href = "css/lightTheme.css";
-			themeChangerLinkElement.dataset.theme = "dark";
-		}
-		else if (themeChangerLinkElement.dataset.theme == "dark") {
-			themeChangerLinkElement.href = "css/darkTheme.css";
 			themeChangerLinkElement.dataset.theme = "light";
+			localStorage.setItem('currentTheme','css/lightTheme.css');
+		}
+		else if (themeChangerLinkElement.dataset.theme == "light") {
+			themeChangerLinkElement.href = "css/darkTheme.css";
+			themeChangerLinkElement.dataset.theme = "dark";
+			localStorage.setItem('currentTheme','css/darkTheme.css');
 		}
 
 	})
