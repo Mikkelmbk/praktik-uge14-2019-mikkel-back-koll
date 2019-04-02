@@ -8,6 +8,11 @@
   padding: 20px;
 }
 
+#btn-next-image, #btn-prev-image, #btn-slideshow-image {
+  margin: 5px 0;
+  width: 120px;
+}
+
 .header__a, .footer__a {
   font-size: 1.2em;
   text-decoration: none;
