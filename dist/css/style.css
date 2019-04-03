@@ -1,3 +1,12 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin: 6px 0;
+}
+
 .employeeFoto {
   margin-top: 15px;
   height: 100px;
