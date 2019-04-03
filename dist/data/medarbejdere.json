@@ -1,0 +1,20 @@
+[
+	{
+		"employeeFoto":"assets/images/idiot1.jpg",
+		"employeeName":"Idiot 1",
+		"employeeJobTitle":"President...ish",
+		"employeeInfo":"He is not fit for his job"
+	},
+	{
+		"employeeFoto":"assets/images/idiot2.jpg",
+		"employeeName":"Idiot 2",
+		"employeeJobTitle":"Soon To Be out of a Job",
+		"employeeInfo":"Hopefully someone with abit of common sense will take over his job"
+	},
+	{
+		"employeeFoto":"assets/images/idiot3.jpg",
+		"employeeName":"Idiot 3",
+		"employeeJobTitle":"Soon to be full time wife beater",
+		"employeeInfo":"Attempts to beat wife, gets grounded and sent to bed early without dinner"
+	}
+]
