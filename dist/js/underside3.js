@@ -1,43 +1,38 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
-	// console.log(localStorage.getItem('guestBookData'));
-
 	let formElement = document.querySelector('.form');
 	let guestBookElement = document.querySelector('.guestBook');
 	let guestBookArray = [];
 	if(localStorage.getItem('guestBookData')){
 		guestBookArray = JSON.parse(localStorage.getItem('guestBookData'));
 
-		console.log(guestBookArray[0].name);
+		console.log(guestBookArray);
 	}
 
 	formElement.addEventListener('submit',(event)=>{
-		event.preventDefault();
 
 		guestBookArray.push({name:event.target.name.value, email:event.target.email.value, message:event.target.message.value});
 	
-
-
-		
-
 		let guestBookArrayStringified = JSON.stringify(guestBookArray);
 
 		localStorage.setItem('guestBookData',guestBookArrayStringified);
 	})
 
-	// setTimeout(()=>{
+	guestBookArray.forEach((guestBookCredentials,index)=>{
+		console.log(guestBookCredentials);
+		let guestNameElement = document.createElement('h3');
+		guestBookElement.appendChild(guestNameElement);
+		guestNameElement.innerHTML = guestBookArray[index].name;
 
-	// 	let pTestElement1 = document.createElement('p');
-	// 	let pTestElement2 = document.createElement('p');
-	// 	let pTestElement3 = document.createElement('p');
+		let guestEmailElement = document.createElement('h4');
+		guestBookElement.appendChild(guestEmailElement);
+		guestEmailElement.innerHTML = guestBookArray[index].email;
 
-	// 	guestBookElement.appendChild(pTestElement1);
-	// 	guestBookElement.appendChild(pTestElement2);
-	// 	guestBookElement.appendChild(pTestElement3);
+		let guestMessageElement = document.createElement('p');
+		guestBookElement.appendChild(guestMessageElement);
+		guestMessageElement.innerHTML = guestBookArray[index].message;
+	})
 
-
-
-	// },1000)
 
 
 
