@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			imageCount();
 			updateSource();
 			ifNotUndefinedCallStopIntervalByBtn();
+			slideShowBtnElement.classList.remove('slideshowBtnColorChange');
 		});
 
 		prevSlideBtnElement.addEventListener('click', () => {
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			ifNotUndefinedCallStopIntervalByBtn();
 			imageCount();
 			updateSource();
+			slideShowBtnElement.classList.remove('slideshowBtnColorChange');
 		});
 
 
