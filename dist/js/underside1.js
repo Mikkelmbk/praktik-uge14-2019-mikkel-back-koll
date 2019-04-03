@@ -29,9 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		let setIntervalByClick;
 
 		
-
-		
-
 		dataUrlElements.forEach((dataUrlElement) => {
 			dataArray.push({ url: dataUrlElement.dataset.url, title: dataUrlElement.dataset.title });
 		});
