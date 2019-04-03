@@ -57,15 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	function validateCounter(event) {
 		if (event.target.name.value != "" && isNaN(event.target.name.value)) {
 			validateRequirements++;
-
 		}
+		else{
+			event.target.name.style.backgroundColor = "red";
+		}
+		
 		if (event.target.email.value != "" && validateEmail(event.target.email.value)) {
 			validateRequirements++;
 		
 		}
+		else{
+			event.target.email.style.backgroundColor = "red";
+		}
 		if (event.target.message.value != "") {
 			validateRequirements++;
 		
+		}
+		else{
+			event.target.message.style.backgroundColor = "red";
 		}
 
 		confirmValidation(event);

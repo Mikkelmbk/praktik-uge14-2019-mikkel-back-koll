@@ -97,7 +97,7 @@ Siden skal vise en **fake gæstebog**. Dvs, indlæggene **huskes kun på den com
 
 * Der skal være en **formular** med følgende felter:
 
-	* **Navn**  *(påkrævet)*
+	* **Navn**  *(påkrævet)* 
 	* **Email**  *(valgfri)*
 	* **Besked**  *(påkrævet)*
 	* **Submit-knap**
