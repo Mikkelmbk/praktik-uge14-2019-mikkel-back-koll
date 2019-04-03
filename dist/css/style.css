@@ -4,6 +4,20 @@
   width: auto;
 }
 
+#products {
+  text-align: center;
+}
+
+.product {
+  border: 3px solid black;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+#html-template {
+  display: none;
+}
+
 .galleryContainer {
   display: none;
 }
