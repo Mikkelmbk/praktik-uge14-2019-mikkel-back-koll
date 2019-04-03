@@ -1,12 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+	let emptyGuestBook = true;
 	let formElement = document.querySelector('.form');
 	let guestBookElement = document.querySelector('.guestBook');
 	let guestBookArray = [];
 	if (localStorage.getItem('guestBookData')) {
 		guestBookArray = JSON.parse(localStorage.getItem('guestBookData'));
+		emptyGuestBook = false;
 	}
 	let validateRequirements = 0;
+
+	if(emptyGuestBook == true){
+
+
+		let emptyGuestBookText = document.createElement('h3');
+
+		guestBookElement.appendChild(emptyGuestBookText);
+
+		emptyGuestBookText.innerHTML = "Gæstebogen er tom. Vær den første til at skrive!"
+	}
 
 
 	formElement.addEventListener('submit', (event) => {
@@ -16,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 	function confirmValidation(event) {
 
-
 		if (validateRequirements == 3) {
+			emptyGuestBook = false;
 
 			guestBookArray.push({ name: event.target.name.value, email: event.target.email.value, message: event.target.message.value });
 
@@ -33,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 	guestBookArray.forEach((guestBookCredentials, index) => {
-		console.log(guestBookCredentials);
 
 		let guestBookboxElement = document.createElement('div');
 		guestBookboxElement.classList.add('guestBookSeperator');
