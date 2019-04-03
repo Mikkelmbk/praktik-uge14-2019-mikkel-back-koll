@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		})
 		.then((employeeInformations) => {
 
+			console.log(employeeInformations.length);
 			if (employeeInformations.length > 0) {
 
 				let divProductsElement = document.querySelector('#products');
 				let divHtmlTemplateElement = document.querySelector('#html-template .product');
 				let divProductElement;
-				console.log(employeeInformations.length);
 
 				employeeInformations.forEach((employeeInformation) => {
 
@@ -32,7 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			else{
 				let mainElement = document.querySelector('.main');
 
-				mainElement.innerHTML = "Medarbejder side kommer snart";
+				let emptySiteTextElement = document.createElement('p');
+
+				mainElement.appendChild(emptySiteTextElement);
+
+				emptySiteTextElement.innerHTML = "Medarbejder side kommer snart";
+
+				// mainElement.innerHTML = "Medarbejder side kommer snart";
 
 			}
 
