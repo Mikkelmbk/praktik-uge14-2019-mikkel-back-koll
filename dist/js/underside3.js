@@ -6,17 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
 	let guestBookArray = [];
 	if (localStorage.getItem('guestBookData')) {
 		guestBookArray = JSON.parse(localStorage.getItem('guestBookData'));
+		createBookEntries();
 		emptyGuestBook = false;
 	}
 	let validateRequirements = 0;
 
 	if(emptyGuestBook == true){
-
-
 		let emptyGuestBookText = document.createElement('h3');
-
 		guestBookElement.appendChild(emptyGuestBookText);
-
 		emptyGuestBookText.innerHTML = "Gæstebogen er tom. Vær den første til at skrive!"
 	}
 
@@ -36,13 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			let guestBookArrayStringified = JSON.stringify(guestBookArray);
 
 			localStorage.setItem('guestBookData', guestBookArrayStringified);
+
+			guestBookArray = JSON.parse(localStorage.getItem('guestBookData'));
+			createBookEntries();
+			formElement.innerHTML = "Tak for besøget";
+			
 		}
-		else{
-			event.preventDefault();
-		}
+		event.preventDefault();
 	}
 
+function createBookEntries(){
 
+	guestBookElement.innerHTML = "";
 
 	guestBookArray.forEach((guestBookCredentials, index) => {
 
@@ -62,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		guestBookboxElement.appendChild(guestMessageElement);
 		guestMessageElement.innerHTML = guestBookArray[index].message;
 	})
-
+}
 
 
 	function validateCounter(event) {
@@ -91,6 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		confirmValidation(event);
 		validateRequirements = 0;
 	}
+
+
 
 	function validateEmail(email) {
 		let re = /(.+)@(.+){2,}\.(.+){2,}$/; return re.test(String(email).toLowerCase());
